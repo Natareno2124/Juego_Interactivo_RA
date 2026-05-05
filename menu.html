@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RA Minijuegos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="menu.css" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <div class="bg-vignette"></div>
+
+    <div class="wrap">
+      <!-- TOPBAR -->
+      <div class="topbar a d1">
+        <div class="logo">
+          <div class="logo-icon"></div>
+          <div>
+            <div class="logo-text">RA Minijuegos</div>
+            <div class="logo-sub">Realidad Aumentada</div>
+          </div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          <span class="toggle-label" id="toggleLabel">Claro</span>
+        </button>
+      </div>
+
+      <!-- HERO -->
+      <div class="hero a d2">
+        <div class="hero-eyebrow">Plataforma de minijuegos de RA</div>
+        <h1 class="hero-title">Juega con tus<br /><span>manos</span></h1>
+        <p class="hero-desc">
+          Interactúa con objetos virtuales usando tu cámara y gestos. Solo tú y
+          la pantalla!
+        </p>
+      </div>
+
+      <!-- GAMES -->
+      <div class="section-label a d3">Minijuegos disponibles</div>
+      <div class="games-grid a d4">
+        <div
+          class="game-card"
+          style="
+            --card-accent: #00d4ff;
+            --card-glow: rgba(0, 212, 255, 0.08);
+            --accent-rgb: 0, 212, 255;
+          "
+        >
+          <div class="card-badge">
+            <span class="badge-dot"></span>Disponible
+          </div>
+          <span class="card-icon">🎨</span>
+          <div class="card-title">Colores</div>
+          <div class="card-desc">
+            Arrastra figuras geométricas hacia la zona del color correcto usando
+            el dedo índice.
+          </div>
+          <div class="card-tags">
+            <span class="tag">Colores</span>
+            <span class="tag">Arrastrar</span>
+            <span class="tag">Formas</span>
+          </div>
+          <a href="game.html" class="btn-play">▶ &nbsp;Jugar</a>
+        </div>
+      </div>
+
+      <!-- STATUS BAR -->
+      <div class="status-bar a d5">
+        <div class="status-item">
+          <span class="sdot sdot-green"></span>Cámara disponible
+        </div>
+        <div class="status-item">
+          <span class="sdot sdot-dim"></span>ml5 Handpose · p5.js 1.9
+        </div>
+        <div class="status-item"><span class="sdot sdot-dim"></span>v1.0.0</div>
+      </div>
+    </div>
+
+    <script>
+      const toggle = document.getElementById("themeToggle");
+      const label = document.getElementById("toggleLabel");
+      const html = document.documentElement;
+
+      const saved = localStorage.getItem("arTheme") || "dark";
+      html.setAttribute("data-theme", saved);
+      label.textContent = saved === "dark" ? "Claro" : "Oscuro";
+
+      toggle.addEventListener("click", () => {
+        const next =
+          html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", next);
+        label.textContent = next === "dark" ? "Claro" : "Oscuro";
+        localStorage.setItem("arTheme", next);
+      });
+    </script>
+  </body>
+</html>
