@@ -4,9 +4,9 @@
   --bg-card-hover: rgba(255, 255, 255, 0.08);
   --border: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.22);
-  --text-primary: #f0f0f8;
-  --text-muted: rgba(200, 200, 220, 0.55);
-  --text-label: rgba(200, 200, 220, 0.36);
+  --text-primary: #ffffff;
+  --text-muted: rgba(220, 220, 240, 0.9);
+  --text-label: rgba(200, 200, 220, 0.6);
   --accent: #00d4ff;
   --accent-rgb: 0, 212, 255;
   --green: #3cdc50;
@@ -18,9 +18,9 @@
   --bg-card-hover: rgba(255, 255, 255, 0.97);
   --border: rgba(100, 120, 200, 0.14);
   --border-hover: rgba(0, 140, 200, 0.35);
-  --text-primary: #0d0e1a;
-  --text-muted: rgba(30, 40, 90, 0.55);
-  --text-label: rgba(30, 40, 90, 0.36);
+  --text-primary: #0a0a0f;
+  --text-muted: #1a1a2e;
+  --text-label: rgba(10, 10, 30, 0.6);
   --accent: #006fcc;
   --accent-rgb: 0, 111, 204;
   --green: #1d9e40;
@@ -68,12 +68,20 @@ body {
   );
 }
 
+/* .wrap fusionado (layout + transición) */
 .wrap {
   position: relative;
   z-index: 2;
   max-width: 860px;
   margin: 0 auto;
   padding: 44px 24px 72px;
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+.wrap.fade-out {
+  transform: scale(1.05);
+  filter: blur(6px);
 }
 
 /* TOPBAR */
@@ -123,7 +131,7 @@ body {
   color: var(--accent);
 }
 .logo-sub {
-  font-size: 9.5px;
+  font-size: 12px;
   letter-spacing: 0.22em;
   color: var(--text-label);
   text-transform: uppercase;
@@ -170,7 +178,7 @@ body {
   left: 17px;
 }
 .toggle-label {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -183,7 +191,7 @@ body {
 }
 .hero-eyebrow {
   font-family: "Orbitron", monospace;
-  font-size: 9.5px;
+  font-size: 13px;
   letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--accent);
@@ -213,7 +221,7 @@ body {
   color: var(--accent);
 }
 .hero-desc {
-  font-size: 17px;
+  font-size: 22px;
   color: var(--text-muted);
   max-width: 450px;
   margin: 0 auto;
@@ -223,7 +231,7 @@ body {
 /* SECTION LABEL */
 .section-label {
   font-family: "Orbitron", monospace;
-  font-size: 9px;
+  font-size: 13px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--text-label);
@@ -302,7 +310,7 @@ body {
   align-items: center;
   gap: 5px;
   font-family: "Orbitron", monospace;
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--card-accent);
@@ -345,7 +353,7 @@ body {
   letter-spacing: 0.04em;
 }
 .card-desc {
-  font-size: 14.5px;
+  font-size: 17px;
   color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 16px;
@@ -358,7 +366,7 @@ body {
   margin-bottom: 24px;
 }
 .tag {
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--card-accent);
@@ -374,7 +382,7 @@ body {
   justify-content: center;
   gap: 10px;
   font-family: "Orbitron", monospace;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -429,7 +437,7 @@ body {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 10.5px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-label);
@@ -477,7 +485,7 @@ body {
   animation-delay: 0.44s;
 }
 
-/* TRANSICIÓN */
+/* TRANSICIÓN DE PÁGINA */
 #transition-overlay {
   position: fixed;
   inset: 0;
@@ -487,20 +495,6 @@ body {
   z-index: 999;
   transition: opacity 0.45s ease;
 }
-
-/* Estado activo */
 #transition-overlay.active {
   opacity: 1;
-}
-
-/* Animación del contenido */
-.wrap {
-  transition:
-    transform 0.45s ease,
-    filter 0.45s ease;
-}
-
-.wrap.fade-out {
-  transform: scale(1.05);
-  filter: blur(6px);
 }
